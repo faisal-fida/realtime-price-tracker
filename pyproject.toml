@@ -1,17 +1,26 @@
-[tool.poetry]
-name = ""
+[project]
+name = "buyhatke-tracker"
 version = "0.1.0"
-description = "Start a simple web app with the Flask framework for Python"
-authors = ["Faisal Fida"]
-packages = [{include = "src"}]
-
-[tool.poetry.dependencies]
-python = "^3.11"
-fastapi = "^0.111.0"
-
-[tool.poetry.scripts]
-app = 'src.main:main'
+description = "Add your description here"
+authors = [
+    { name = "arainfaisal826", email = "arainfaisal826@gmail.com" }
+]
+dependencies = [
+    "fastapi>=0.111.0",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/buyhatke_tracker"]
