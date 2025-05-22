@@ -1,5 +1,5 @@
 [project]
-name = "buyhatke-tracker"
+name = "price_tracker_backend"
 version = "0.1.0"
 description = "Add your description here"
 authors = [
@@ -7,6 +7,13 @@ authors = [
 ]
 dependencies = [
     "fastapi>=0.111.0",
+    "python-jose[cryptography]>=3.3.0",
+    "passlib[bcrypt]>=1.7.4",
+    "SQLAlchemy>=2.0.0",  # Explicitly adding SQLAlchemy
+    "asyncpg>=0.29.0",    # For PostgreSQL async driver
+    "sqlalchemy[asyncio]>=1.4.30", # For SQLAlchemy asyncio support
+    "celery>=5.3.0",
+    "redis>=4.0.0",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
@@ -23,4 +30,11 @@ dev-dependencies = []
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/buyhatke_tracker"]
+packages = ["src/app"]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.0.0",
+    "httpx>=0.23.0",
+    "pytest-asyncio>=0.20.0", # Required for async pytest functions
+]
